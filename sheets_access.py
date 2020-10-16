@@ -63,12 +63,11 @@ query_groups = chunker(sorted(queries), 20)
 filepath_list = []
 
 for index, group in enumerate(query_groups):
-    if index < 2:
-        try:
-            build_results_pdf(group, index)
-            filepath_list.append(f'out{index}.pdf')
-        except:
-            continue
+    try:
+        build_results_pdf(group, index)
+        filepath_list.append(f'out{index}.pdf')
+    except:
+        continue
 
 
 pprint(filepath_list)
